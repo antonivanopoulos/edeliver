@@ -154,7 +154,7 @@ erlang_clean_compile() {
     [[ "$MODE" = "verbose" ]] && local _auto_release_verbose="--verbose"
     local _auto_version_args="$(__get_auto_version_args)"
     if [[ -n "$_auto_version_args" ]] || [[ -n "$AUTO_VERSION" ]]; then
-      local _set_auto_version=" release.version $_auto_version_args $_auto_release_verbose,"
+      local _set_auto_version=" release.version set $_auto_version_args $_auto_release_verbose,"
     fi
   fi
   __sync_remote "
@@ -219,7 +219,7 @@ erlang_generate_release() {
     [[ "$MODE" = "verbose" ]] && local _auto_release_verbose=" --verbose"
     local _auto_version_args="$(__get_auto_version_args)"
     if [[ -n "$_auto_version_args" ]] || [[ -n "$AUTO_VERSION" ]]; then
-      local _set_auto_version="do release.version ${_auto_version_args}${_auto_release_verbose}, "
+      local _set_auto_version="do release.version set ${_auto_version_args}${_auto_release_verbose}, "
     fi
   fi
 
